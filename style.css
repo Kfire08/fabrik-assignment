@@ -1,3 +1,4 @@
+/* ------------------------------------------------- BODY CSS --------------------------------------------------- */
 body {
   background-color: black;
   text-rendering: geometricPrecision;
@@ -23,6 +24,11 @@ p {
   font-size: 1.25rem;
   font-weight: 300;
 }
+
+/* ------------------------------------------------- BODY CSS ENDS HER--------------------------------------------- */
+
+/* ----------------------------------------------------- HEADER CSS ----------------------------------------------- */
+
 #header_container {
   margin-top: -0.5rem;
   margin-left: 0.5rem;
@@ -35,6 +41,11 @@ p {
   height: 35vh;
   background: url(https://vark.fbrk.in/assets/images/community-bg.png);
 }
+
+/* ----------------------------------------- HEADER CSS ENDS HERE --------------------------------------------------- */
+
+/* ------------------------------------ SEARCH BAR AND UPLOAD BUTTON CSS -------------------------------------------- */
+
 #btncontainer {
   flex: 0 0 50%;
   max-width: 50%;
@@ -112,6 +123,11 @@ p {
   background-color: #242424;
   border-color: #242424;
 }
+
+/* ---------------------------------- SEARCH BAR AND UPLOAD BUTTON CSS ENDS HERE ------------------------------------ */
+
+/* --------------------------------------------- MODEL LIST CSS ----------------------------------------------------- */
+
 .model-list {
   display: flex;
   flex-flow: column;
@@ -147,7 +163,9 @@ p {
   text-decoration: none;
 }
 
-/* form */
+/* ----------------------------------------- MODEL LIST CSS ENDS HERE ------------------------------------------- */
+
+/* -------------------------------------------- FORM AND MODAL CSS ---------------------------------------------- */
 
 input[type="submit"] {
   width: 23vw;
@@ -167,8 +185,6 @@ input[type="submit"] {
 input[type="file"] {
   margin-bottom: 10px;
 }
-
-/*   Modal CSS    */
 
 .modal {
   position: fixed;
@@ -227,8 +243,6 @@ input[type="file"] {
   padding: 20px 0px;
 }
 
-/* Add Modal */
-
 #add-modal {
   min-width: 250px;
   width: 25vw;
@@ -251,11 +265,4 @@ input[type="file"] {
   pointer-events: all;
 }
 
-ul {
-  list-style: none;
-}
-li {
-  list-style: none;
-}
-
-/* model render body */
+/* -------------------------------------------- FORM AND MODAL CSS ENDS HERE ---------------------------------------------- */

@@ -1,3 +1,5 @@
+/* ------------------------------------------- UPLOAD FORM MODAL ------------------------------------------- */
+
 const openAddModalButtons = document.querySelectorAll("[data-modal-target]");
 const closeAddModalButtons = document.querySelectorAll("[data-close-button]");
 const addOverlay = document.getElementById("addoverlay");
@@ -35,7 +37,9 @@ function closeModal(modal) {
   addOverlay.classList.remove("active");
 }
 
-/* search */
+/* -------------------------------------------- UPLOAD FORM MODAL ENDS HERE ------------------------------------ */
+
+/* ---------------------------------------------- SEARCH FUNCTIONALITY ------------------------------------ */
 
 const searchmodel = () => {
   let filter = document.getElementById("search-id").value.toUpperCase();
@@ -51,36 +55,43 @@ const searchmodel = () => {
   }
 };
 
-var models = [
-  [
-    "car",
-    "https://sketchfab.com/3d-models/free-1972-datsun-240k-gt-b2303a552b444e5b8637fdf5169b41cb",
-  ],
-];
+/* -------------------------------------- SEARCH FUNCTIONALITY ENDS HERE ------------------------------------ */
+
+/* ------------------------------------------ MODEL LIST ITEM UPLOAD ---------------------------------------- */
+
+var models = [["name", "link"]];
 
 function upload() {
-  var link = document.getElementById("link");
-  var name = document.getElementById("model-name");
+  var link = document.getElementById("link").value;
+  var name = document.getElementById("model-name").value;
   models.push([name, link]);
-  console.log(models);
+  localStorage.models = JSON.stringify(models);
+
+  let modellist = document.getElementsByTagName("a");
+  var x = modellist[0].cloneNode(true);
+  x.href = link;
+  x.children[0].innerText = name;
+  document.getElementById("model-list-id").appendChild(x);
+
+  document.getElementById("link").value = "";
+  document.getElementById("model-name").value = "";
   const modals = document.querySelectorAll(".modal.active");
   modals.forEach((modal) => {
     closeModal(modal);
   });
 }
 
-function test() {
-  let modellist = document.getElementsByTagName("a");
-  var x = modellist[0];
-  x.href = models[0][1];
-  x.children[0].innerText = models[0][0];
-  document.getElementById("model-list-id").appendChild(x);
+/* -------------------------------------- MODEL LIST ITEM UPLOAD ENDS HERE ---------------------------------- */
 
-  for (var i = 1; i < models.length; i++) {
+/* -------------------------------------------- LOADING STORED MODELS --------------------------------------- */
+
+function test() {
+  var storedModels = JSON.parse(localStorage.models);
+  for (var i = 1; i < storedModels.length; i++) {
     let modellist = document.getElementsByTagName("a");
     var x = modellist[0].cloneNode(true);
-    x.href = models[i][1];
-    x.children[0].innerText = models[i][0];
+    x.href = storedModels[i][1];
+    x.children[0].innerText = storedModels[i][0];
     document.getElementById("model-list-id").appendChild(x);
   }
 }
@@ -89,8 +100,14 @@ window.onload = function () {
   test();
 };
 
+/* -------------------------------------- LOADING STORED MODELS ENDS HERE ------------------------------------ */
+
+/* ------------------------------------------ PREVENTING PAGE REFRESH ---------------------------------------- */
+
 var form = document.getElementById("add-form");
 function handleForm(event) {
   event.preventDefault();
 }
 form.addEventListener("submit", handleForm);
+
+/* ---------------------------------- PREVENTING PAGE REFRESH ENDS HERE -------------------------------------- */
