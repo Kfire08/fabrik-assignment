@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Fabrik Assignment</title>
+  </head>
+  <body>
+
+    <div id="header_container">
+      <h1>Fabrik 3D models</h1>
+      <p>Ideas of the open world</p>
+    </div>
+
+    <div class="section">
+
+      <div class="searchbar">
+        <input
+          id="search-id"
+          onkeyup="searchmodel()"
+          type="text"
+          name="search"
+          autocomplete="off"
+          placeholder=" &#xf002 Search"
+          class="searchstyle fa"
+        />
+      </div>
+
+      <div id="btncontainer">
+        <button id = "add" data-modal-target="#add-modal" class="uploadbtn">Upload Model</button>
+      </div>
+    </div>
+    
+    <div class="model-list" id="model-list-id">
+    <a href="#" class="model">
+      <span class="model-title">model</span>
+      <span class="fa fa-chevron-right"></span>
+    </a>
+    </div>
+
+    <!---modal--->
+    
+    <div id="addoverlay"></div>
+    <div class="modal" id="add-modal">
+      <div class="modal-header">
+        <div class="title">Upload Model</div>
+        <button class="fa fa-times" data-close-button class="close-button"></button>
+      </div>
+      <div class="modal-body">
+        <form id = "add-form" style="display: flex; flex-direction: column; justify-content: center;" action="" onsubmit="upload()">
+          <input style = "margin-bottom: 10px;" type="text" id="link" placeholder="Model Link">
+          <input style = "margin-bottom: 8px;" type="text" id="model-name" placeholder="Model Name">
+          <input type="submit" value="Upload">
+        </form>
+      </div>
+      
+    <!-------------------Script---------------------->
+    <script src="script.js"></script>
+  </body>
+</html>
