@@ -56,9 +56,7 @@
         let loader = new THREE.GLTFLoader();
         loader.crossOrigin = true;
         loader.load(
-          "https://github.com/Kfire08/fabrik-assignment/blob/main/models in gltf/" +
-            model +
-            ".gltf",
+          "https://firebasestorage.googleapis.com/v0/b/fabrik3d-22b50.appspot.com/o/models%20in%20gltf%2FP1.gltf?alt=media&token=b2b14e68-d3a1-43c1-922e-b734debaae95",
           function (gltf) {
             product = gltf.scene.children[0];
             product.scale.set(1800, 1800, 1800);
