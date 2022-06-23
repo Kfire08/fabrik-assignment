@@ -55,12 +55,17 @@
 
         let loader = new THREE.GLTFLoader();
         loader.crossOrigin = true;
-        loader.load("models in gltf/" + model + ".gltf", function (gltf) {
-          product = gltf.scene.children[0];
-          product.scale.set(1800, 1800, 1800);
-          scene.add(gltf.scene);
-          animate();
-        });
+        loader.load(
+          "https://github.com/Kfire08/fabrik-assignment/tree/main/models%20in%20gltf/" +
+            model +
+            ".gltf",
+          function (gltf) {
+            product = gltf.scene.children[0];
+            product.scale.set(1800, 1800, 1800);
+            scene.add(gltf.scene);
+            animate();
+          }
+        );
       }
       function animate() {
         renderer.render(scene, camera);
